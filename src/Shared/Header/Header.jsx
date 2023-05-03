@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Header = () => {
@@ -12,7 +12,9 @@ const Header = () => {
 
   const handleLogOut=()=>{
     logOut()
-    .then(() => {})
+    .then(() => {
+      <Navigate to='/login'></Navigate>
+    })
     .catch((error) => {});
   }
 
@@ -34,7 +36,7 @@ const Header = () => {
               </div></div>
             }
             {
-              !user ? <li><Link to='/register' className={`${isActiveRoute('/register') ? "bg-indigo-500 text-white" : ""}`}>Register</Link></li> : <li onClick={handleLogOut} className='text-indigo-5000'><Link >LogOut</Link></li>
+              !user ? <li><Link to='/register' className={`${isActiveRoute('/register') ? "bg-indigo-500 text-white" : ""}`}>Register</Link></li> : <li onClick={handleLogOut} ><Link >LogOut</Link></li>
             }</ul>
         </div>
       </div>

@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const ChefDetails = () => {
+    const [isFavorite, setIsFavorite] = useState(false);
+
+    const handleFavorite = () => {
+        setIsFavorite(true);
+        toast.success(`${name} is now your favorite recipe!`, {
+            position: toast.POSITION.TOP_RIGHT,
+        });
+    };
     const chefData = useLoaderData();
     const { name, picture, likes, recipesList, bio, recipes, experience } = chefData;
     const id = useParams()
@@ -33,7 +42,14 @@ const ChefDetails = () => {
                             {/* <p>{recipesList[0].method}</p> */}
                         </p>
                         <div className="card-actions justify-end">
-                            <button className="btn bg-indigo-500 text-white">Favourite</button>
+                            <button
+                                className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ${isFavorite && 'bg-gray-400 cursor-default'
+                                    }`}
+                                disabled={isFavorite}
+                                onClick={handleFavorite}
+                            >
+                                {isFavorite ? 'Already Favourite' : 'Add to Favourite'}
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -51,7 +67,14 @@ const ChefDetails = () => {
                             {/* <p>{recipesList[0].method}</p> */}
                         </p>
                         <div className="card-actions justify-end">
-                            <button className="btn bg-indigo-500">Favourite</button>
+                            <button
+                                className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ${isFavorite && 'bg-gray-400 cursor-default'
+                                    }`}
+                                disabled={isFavorite}
+                                onClick={handleFavorite}
+                            >
+                                {isFavorite ? 'Already Favourite' : 'Add to Favourite'}
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -69,12 +92,20 @@ const ChefDetails = () => {
                             {/* <p>{recipesList[0].method}</p> */}
                         </p>
                         <div className="card-actions justify-end">
-                            <button className="btn bg-indigo-500">Favourite</button>
+                            <button
+                                className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ${isFavorite && 'bg-gray-400 cursor-default'
+                                    }`}
+                                disabled={isFavorite}
+                                onClick={handleFavorite}
+                            >
+                                {isFavorite ? 'Already Favourite' : 'Add to Favourite'}
+                            </button>
                         </div>
                     </div>
                 </div>
-                
+
             </div>
+            <ToastContainer />
         </div>
     );
 };

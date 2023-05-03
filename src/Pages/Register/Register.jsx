@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { getAuth, updateProfile } from 'firebase/auth';
+import app from '../../firebase/firebase.config';
 const auth = getAuth(app);
 const Register = () => {
     const { createUser } = useContext(AuthContext);

@@ -1,7 +1,10 @@
 import React from 'react';
+import { Link, useParams } from 'react-router-dom';
 
 const ChefCard = ({chef}) => {
-    const {name,experience,picture,recipies,likes}=chef;
+    const {id,name,experience,picture,recipies,likes}=chef;
+    // const id=useParams(); 
+    console.log(id)
     return (
         <div>
             <div className="max-w-xs rounded overflow-hidden shadow-lg bg-white">
@@ -13,9 +16,9 @@ const ChefCard = ({chef}) => {
                     </p>
                 </div>
                 <div className="px-6 py-4">
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                    <Link to={`/chefs/${id}`}><button  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
                         View Recipes
-                    </button>
+                    </button></Link>
                 </div>
             </div>
         </div>

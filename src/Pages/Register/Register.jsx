@@ -1,7 +1,32 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import { AuthContext } from '../../providers/AuthProvider';
+import { getAuth, updateProfile } from 'firebase/auth';
+const auth = getAuth(app);
 const Register = () => {
+    const { createUser } = useContext(AuthContext);
+    const handleRegister = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const photo = form.photoUrl.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(name,photo,email,password)
+        console.log(name, photo, email, password)
+        createUser(email, password)
+            .then(result => {
+                const createdUser = result.user;
+                console.log(createdUser);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+            updateProfile(auth.currentUser, {
+                displayName: {name}, photoURL: {photo}
+              }).then(() => {})
+              .catch((error) => {});
+    }
 
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
@@ -9,7 +34,7 @@ const Register = () => {
                 <h1 className="font-bold text-center text-2xl mb-5">Registration</h1>
                 <div className="bg-white shadow w-full rounded-lg divide-y divide-gray-200">
                     <div className="px-5 py-7">
-                        <form >
+                        <form onSubmit={handleRegister}>
                             <label className="font-semibold text-sm text-gray-600 pb-1 block">Name</label>
                             <input type="text" name="name" id="name" className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
 

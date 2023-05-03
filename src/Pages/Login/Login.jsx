@@ -1,9 +1,50 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {FaGoogle,FaGithub} from 'react-icons/fa'
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
-  
+    const { signIn,logOut,googleLogin,githubLogin } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    console.log('login page location', location)
+    const from = location.state?.from?.pathname || '/'
+
+    const handleLogin = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+
+        signIn(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log(error);
+            })
+            
+    }
+
+    const handleGoogleLogIn=()=>{
+        googleLogin()
+        .then(result=>console.log(result.user))
+        .catch(error=>console.log(error))
+    }
+    const handleGithubLogIn=()=>{
+        githubLogin()
+        .then(result=>console.log(result.user))
+        .catch(error=>console.log(error))
+    }
+
+    // const handleLogOut=(event)=>{
+    //     event.preventDefault(); 
+    //     logOut()
+    // }
+
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
@@ -11,7 +52,7 @@ const Login = () => {
         <h1 className="font-bold text-center text-2xl mb-5">Login</h1>
         <div className="bg-white shadow w-full rounded-lg divide-y divide-gray-200">
           <div className="px-5 py-7">
-            <form >
+            <form onSubmit={handleLogin}>
               <label className="font-semibold text-sm text-gray-600 pb-1 block">Email</label>
               <input type="email" name="email" id="email" className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"  />
 
@@ -26,8 +67,8 @@ const Login = () => {
           <div className="my-3">
             <div className='text-center '>
                 <p className='mb-3 text-gray-600 font-semibold'>Or <br /></p>
-                <button className="btn btn-outline mb-2 text-indigo-500"><FaGoogle className='mr-3'/>Continue with Google</button>
-                <button className="btn btn-outline text-indigo-500"><FaGithub className='mr-3'/>Continue with Github</button>
+                <button onClick={handleGoogleLogIn} className="btn btn-outline mb-2 text-indigo-500"><FaGoogle className='mr-3'/>Continue with Google</button>
+                <button onClick={handleGithubLogIn} className="btn btn-outline text-indigo-500"><FaGithub className='mr-3'/>Continue with Github</button>
             </div>
           </div>
           <div className="py-5">

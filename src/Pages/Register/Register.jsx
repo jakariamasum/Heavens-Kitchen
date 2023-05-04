@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { getAuth, updateProfile } from 'firebase/auth';
 import app from '../../firebase/firebase.config';
-const auth = getAuth(app);
+// const auth = getAuth(app);
 const Register = () => {
     const { createUser } = useContext(AuthContext);
     const [err,setErr]=useState('');
@@ -15,27 +15,16 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        if(password.length<6)
-        {
-            setErr('Password must be at least 6 character')
-            return
-        }
-
-        console.log(name,photo,email,password)
         console.log(name, photo, email, password)
         createUser(email, password)
             .then(result => {
                 const createdUser = result.user;
                 console.log(createdUser);
-                setErr('')
+                <Navigate to='/login'></Navigate>
             })
             .catch(error => {
                 console.log(error);
             })
-            updateProfile(auth.currentUser, {
-                displayName: {name}, photoURL: {photo}
-              }).then(() => {})
-              .catch((error) => {console.log(error.message)});
     }
 
     return (

@@ -18,32 +18,33 @@ const ChefDetails = () => {
     return (
         <div>
             <div className="min-h-16 bg-base-200">
-                <div className="hero-content flex-col lg:flex-row-reverse">
+                <div className="hero-content flex-col lg:flex-row-reverse ml-28">
                     <img src={picture} alt={name} className="max-w-sm rounded-lg shadow-2xl" />
                     <div className='w-[50%]'>
                         <h1 className="text-5xl font-bold">{name}</h1>
                         <p className="py-6">{bio}</p>
-                        <p className="text-gray-700 mb-2">{likes} likes | {recipes} recipes | {experience} years of experience</p>
+                        <p className="text-indigo-500 mb-2">{likes} likes | {recipes} recipes | {experience} years of experience</p>
                     </div>
                 </div>
             </div>
-            <div className='grid grid-cols-3 mx-32 gap-3'>
-                <div className="card card-compact w-full bg-base-100 shadow-xl">
-                    <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+                <h1 className="text-center font-bold text-3xl text-indigo-500 mt-32">Popular recipe</h1>
+            <div className='grid grid-cols-3 mx-32 gap-3 my-24'>
+                <div className="card card-compact w-full bg-[#CECCD6] shadow-xl">
+                    <figure><img src={recipesList[0].image} alt={recipesList[0].name} className=' h-[250px] p-3'/></figure>
                     <div className="card-body">
-                        <h2 className="card-title text-center">{recipesList[0].name}</h2>
+                        <h2 className="card-title text-center text-3xl text-indigo-500">{recipesList[0].name}</h2>
                         <p>
-                            <p>Ingredients:</p>
-                            {recipesList[0].ingredients.map(item => <li>{item}</li>)}
+                            <p className='font-semibold text-2xl'>Ingredients:</p>
+                            {recipesList[0].ingredients.map(item => <li className='ml-5'>{item}</li>)}
                         </p>
                         <p>
-                            <p>Cooking Method:</p>
-                            {recipesList[0].method.map(item => <li>{item}</li>)}
+                            <p className='font-semibold text-2xl'>Cooking Method:</p>
+                            {recipesList[0].method.map(item => <li className='ml-5'>{item}</li>)}
                             {/* <p>{recipesList[0].method}</p> */}
                         </p>
                         <div className="card-actions justify-end">
                             <button
-                                className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ${isFavorite && 'bg-gray-400 cursor-default'
+                                className={`bg-indigo-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ${isFavorite && 'bg-gray-400 cursor-default'
                                     }`}
                                 disabled={isFavorite}
                                 onClick={handleFavorite}
@@ -53,22 +54,22 @@ const ChefDetails = () => {
                         </div>
                     </div>
                 </div>
-                <div className="card card-compact w-full bg-base-100 shadow-xl">
-                    <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+                <div className="card card-compact w-full bg-[#CECCD6] shadow-xl">
+                    <figure><img src={recipesList[1].image} alt={recipesList[1].name} className=' h-[250px] p-3'/></figure>
                     <div className="card-body">
-                        <h2 className="card-title text-center">{recipesList[1].name}</h2>
+                        <h2 className="card-title text-center text-3xl text-indigo-500">{recipesList[1].name}</h2>
                         <p>
-                            <p>Ingredients:</p>
-                            {recipesList[1].ingredients.map(item => <li>{item}</li>)}
+                            <p className='font-semibold text-2xl'>Ingredients:</p>
+                            {recipesList[1].ingredients.map(item => <li className='ml-5'>{item}</li>)}
                         </p>
                         <p>
-                            <p>Cooking Method:</p>
-                            {recipesList[1].method.map(item => <li>{item}</li>)}
+                            <p className='font-semibold text-2xl'>Cooking Method:</p>
+                            {recipesList[1].method.map(item => <li className='ml-5'>{item}</li>)}
                             {/* <p>{recipesList[0].method}</p> */}
                         </p>
                         <div className="card-actions justify-end">
                             <button
-                                className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ${isFavorite && 'bg-gray-400 cursor-default'
+                                className={`bg-indigo-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ${isFavorite && 'bg-gray-400 cursor-default'
                                     }`}
                                 disabled={isFavorite}
                                 onClick={handleFavorite}
@@ -78,22 +79,22 @@ const ChefDetails = () => {
                         </div>
                     </div>
                 </div>
-                <div className="card card-compact w-full bg-base-100 shadow-xl">
-                    <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+                <div className="card card-compact w-full bg-[#CECCD6] shadow-xl">
+                    <figure><img src={recipesList[2].image} alt={recipesList[2].name}  className=' h-[250px] p-3'/></figure>
                     <div className="card-body">
-                        <h2 className="card-title text-center">{recipesList[2].name}</h2>
+                        <h2 className="card-title text-center text-3xl text-indigo-500">{recipesList[2].name}</h2>
                         <p>
-                            <p>Ingredients:</p>
-                            {recipesList[2].ingredients.map(item => <li>{item}</li>)}
+                            <p className='font-semibold text-2xl'>Ingredients:</p>
+                            {recipesList[2].ingredients.map(item => <li className='ml-5'>{item}</li>)}
                         </p>
                         <p>
-                            <p>Cooking Method:</p>
-                            {recipesList[2].method.map(item => <li>{item}</li>)}
+                            <p className='font-semibold text-2xl'>Cooking Method:</p>
+                            {recipesList[2].method.map(item => <li className='ml-5'>{item}</li>)}
                             {/* <p>{recipesList[0].method}</p> */}
                         </p>
                         <div className="card-actions justify-end">
                             <button
-                                className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ${isFavorite && 'bg-gray-400 cursor-default'
+                                className={`bg-indigo-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ${isFavorite && 'bg-gray-400 cursor-default'
                                     }`}
                                 disabled={isFavorite}
                                 onClick={handleFavorite}

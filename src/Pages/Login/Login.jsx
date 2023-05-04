@@ -4,7 +4,8 @@ import { FaGoogle, FaGithub } from 'react-icons/fa'
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
-    const { signIn, logOut, googleLogin, githubLogin } = useContext(AuthContext);
+    const {user, signIn, logOut, googleLogin, githubLogin } = useContext(AuthContext);
+    const [err,setErr]=useState('');
     const navigate = useNavigate();
     const location = useLocation();
     console.log('login page location', location)
@@ -22,9 +23,12 @@ const Login = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 navigate(from, { replace: true })
+                setErr('')
+                form.reset();
             })
             .catch(error => {
                 console.log(error);
+                setErr("Invalid password or email")
             })
 
     }
@@ -64,6 +68,7 @@ const Login = () => {
 
                             <label className="font-semibold text-sm text-gray-600 pb-1 block">Password</label>
                             <input type="password" name="password" id="password" className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
+                            <p className='ml-5 text-red-500 mb-2'>{err}</p>
 
                             <button type="submit" className="transition duration-500 ease-in-out bg-indigo-500 hover:bg-purple-600 transform hover:-translate-y-1 hover:scale-110 text-white font-bold py-2 px-4 rounded-lg w-full">
                                 Login

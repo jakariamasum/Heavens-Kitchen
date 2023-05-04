@@ -96,7 +96,7 @@ const Header = () => {
                       </div>
                     </div>
                   </Link>
-                </li>
+                </li>  
                 <li>
                   <Link onClick={handleLogOut}>
                     <span className=' sm:inline'>LogOut</span>

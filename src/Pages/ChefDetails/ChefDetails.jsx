@@ -3,23 +3,26 @@ import { useLoaderData, useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const ChefDetails = () => {
+    const chefData = useLoaderData();
+    const { name, picture, likes, recipesList, bio, recipes, experience } = chefData;
     const [isFavorite, setIsFavorite] = useState(false);
+    const [disabledButton, setDisabledButton] = useState(null);
 
-    const handleFavorite = () => {
-        setIsFavorite(true);
+
+    const handleFavorite = (buttonId,name) => {
+        // setIsFavorite(true);
+        setDisabledButton(buttonId);
         toast.success(`${name} is now your favorite recipe!`, {
             position: toast.POSITION.TOP_RIGHT,
         });
     };
-    const chefData = useLoaderData();
-    const { name, picture, likes, recipesList, bio, recipes, experience } = chefData;
     const id = useParams()
     console.log(recipesList[1])
     return (
-        <div>
+        <div className='mt-4'>
             <div className="min-h-16 bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse ml-28">
-                    <img src={picture} alt={name} className="max-w-sm rounded-lg shadow-2xl" />
+                    <img src={picture} alt={name} className="max-w-sm rounded-lg shadow-2xl h-[300px]" />
                     <div className='w-[50%]'>
                         <h1 className="text-5xl font-bold">{name}</h1>
                         <p className="py-6">{bio}</p>
@@ -44,12 +47,12 @@ const ChefDetails = () => {
                         </p>
                         <div className="card-actions justify-end">
                             <button
-                                className={`bg-indigo-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ${isFavorite && 'bg-gray-400 cursor-default'
-                                    }`}
-                                disabled={isFavorite}
-                                onClick={handleFavorite}
+                                className={`bg-indigo-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full}`}
+                                disabled={disabledButton==='button1'}
+                                onClick={() => handleFavorite('button1',recipesList[0].name)}
                             >
-                                {isFavorite ? 'Already Favourite' : 'Add to Favourite'}
+                                {/* {isFavorite ? 'Already Favourite' : 'Add to Favourite'} */}
+                            Add to favourite
                             </button>
                         </div>
                     </div>
@@ -71,8 +74,8 @@ const ChefDetails = () => {
                             <button
                                 className={`bg-indigo-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ${isFavorite && 'bg-gray-400 cursor-default'
                                     }`}
-                                disabled={isFavorite}
-                                onClick={handleFavorite}
+                                disabled={disabledButton==='button2'}
+                                onClick={() => handleFavorite('button2',recipesList[1].name)}
                             >
                                 {isFavorite ? 'Already Favourite' : 'Add to Favourite'}
                             </button>
@@ -96,8 +99,8 @@ const ChefDetails = () => {
                             <button
                                 className={`bg-indigo-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ${isFavorite && 'bg-gray-400 cursor-default'
                                     }`}
-                                disabled={isFavorite}
-                                onClick={handleFavorite}
+                                disabled={disabledButton==='button3'}
+                                onClick={() => handleFavorite('button3',recipesList[2].name)}
                             >
                                 {isFavorite ? 'Already Favourite' : 'Add to Favourite'}
                             </button>

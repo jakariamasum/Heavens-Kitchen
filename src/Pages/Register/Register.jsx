@@ -14,6 +14,16 @@ const Register = () => {
         const photo = form.photoUrl.value;
         const email = form.email.value;
         const password = form.password.value;
+        if(!email || !password || !photo || !name)
+        {
+            setErr('Please provide all the information')
+            return
+        }
+        if(password.length<6)
+        {
+            setErr('Password must at least 6 character')
+            return;
+        }
 
         console.log(name, photo, email, password)
         createUser(email, password)
@@ -45,7 +55,7 @@ const Register = () => {
 
                             <label className="font-semibold text-sm text-gray-600 pb-1 block">Photo URL</label>
                             <input type="text" name="photoUrl" id="photoUrl" className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
-                            <p className='text-red-400 my-2'>{err}</p>
+                            <p className='text-red-400 mb-3'>{err}</p>
                             <button type="submit" className="transition duration-500 ease-in-out bg-indigo-500 hover:bg-purple-600 transform hover:-translate-y-1 hover:scale-110 text-white font-bold py-2 px-4 rounded-lg w-full">
                                 Register
                             </button>

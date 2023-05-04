@@ -14,7 +14,7 @@ const Reviews = () => {
                 </div>
 
                 <div className="grid gap-4 md:gap-12 text-center md:grid-cols-2">
-                    <div className="mb-8 md:mb-0">
+                    <div className="mb-8 p-3 bg-base-200 rounded-lg md:mb-0">
                         <div className="mb-6 flex justify-center">
                             <img src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(22).jpg" className="w-20 md:w-24 rounded-full shadow-lg" />
                         </div>
@@ -24,8 +24,8 @@ const Reviews = () => {
                         <p className="text-sm md:text-base italic">- Taskin Ahmed</p>
                     </div>
 
-                    <div>
-                        <div className="mb-6 flex justify-center">
+                    <div className='p-3 bg-base-200 rounded-lg'>
+                        <div className="mb-6 flex justify-center ">
                             <img src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(19).jpg" className="w-20 md:w-24 rounded-full shadow-lg" />
                         </div>
                         <p className="my-4 text-lg md:text-xl text-black">
@@ -37,24 +37,24 @@ const Reviews = () => {
             </section>
             <section className="px-4 mt-8">
                 <div className="grid gap-4 md:gap-12 text-center md:grid-cols-2">
-                    <div className="mb-8 md:mb-0">
+                    <div className="mb-8 p-3 bg-base-200 rounded-lg md:mb-0">
                         <div className="mb-6 flex justify-center">
                             <img src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(22).jpg" className="w-20 md:w-24 rounded-full shadow-lg" />
                         </div>
                         <p className="my-4 text-lg md:text-xl text-black ">
                             "I had the vegetarian pasta dish and it was amazing! The sauce was flavorful and the veggies were perfectly cooked. It was a great option for a meatless meal."
                         </p>
-                        <p className="text-sm md:text-base italic">- Ahsan Habib</p>
+                        <p className="text-sm md:text-base italic">- Habiba Khanam</p>
                     </div>
 
-                    <div className="mb-0">
+                    <div className="mb-0 p-3 bg-base-200 rounded-lg">
                         <div className="mb-6 flex justify-center">
                             <img src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(19).jpg" className="w-24 rounded-full shadow-lg" />
                         </div>
                         <p className="my-4 text-xl text-black md:text-center lg:text-left">
                             "The restaurant had a wide variety of options on the menu and the staff was knowledgeable about dietary restrictions. I appreciated that they were able to accommodate my gluten-free needs and the food still tasted great."
                         </p>
-                        <p className="italic text-center lg:text-left">- Nabil Khan</p>
+                        <p className="italic text-center">- Nabila Khan</p>
                     </div>
                 </div>
             </section>

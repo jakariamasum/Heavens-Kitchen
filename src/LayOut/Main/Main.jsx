@@ -7,7 +7,6 @@ import Reviews from '../../components/Reviews/Reviews';
 const Main = () => {
     return (
         <div>
-            <h4>Main layout coming</h4>
             <Header></Header>
             <Outlet></Outlet>
             <Footer></Footer>

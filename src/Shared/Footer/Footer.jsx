@@ -9,14 +9,14 @@ const Footer = () => {
                     <h3 className="text-lg font-bold mb-4">Services</h3>
                     <Link to="#" className="block mb-2 text-sm hover:underline">Foods</Link>
                     <Link to="#" className="block mb-2 text-sm hover:underline">Home Delivery</Link>
-                    <Link to="#" className="block text-sm hover:underline">Advertisement</Link>
+                    <Link to="#" className="block text-sm hover:underline">Service</Link>
                 </div>
                 <div className="mb-6 lg:mb-0">
                     <h3 className="text-lg font-bold mb-4">Heaven's Kitchen</h3>
                     <Link to="#" className="block mb-2 text-sm hover:underline">About us</Link>
                     <Link to="#" className="block mb-2 text-sm hover:underline">Contact</Link>
                     <Link to="#" className="block mb-2 text-sm hover:underline">Foods</Link>
-                    <Link to="#" className="block text-sm hover:underline">Press kit</Link>
+                    <Link to="#" className="block text-sm hover:underline">Blog</Link>
                 </div>
                 <div className="mb-6 lg:mb-0">
                     <h3 className="text-lg font-bold mb-4">Legal</h3>
@@ -30,7 +30,7 @@ const Footer = () => {
                         <label className="sr-only">Enter your email address</label>
                         <div className="relative">
                             <input type="email" placeholder="username@site.com" className="input input-bordered w-full pr-16" />
-                            <button type="submit" className="btn btn-primary absolute top-0 right-0 rounded-l-none">Subscribe</button>
+                            <button type="submit" className="btn btn-primary bg-indigo-500 border-none absolute top-0 right-0 rounded-l-none">Subscribe</button>
                         </div>
                     </form>
                 </div>

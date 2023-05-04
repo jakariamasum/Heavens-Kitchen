@@ -1,10 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [currentUser,setCurrentUser]=useState(false)
   const [showMenu, setShowMenu] = useState(false);
   const location = useLocation();
 
@@ -15,12 +16,14 @@ const Header = () => {
       })
       .catch((error) => {});
   };
-
+  useEffect(() => {
+    setCurrentUser(true);
+  }, [user]);
   return (
     <div className='mx-4 sm:mx-8 md:mx-16 lg:mx-24 xl:mx-32'>
       <div className='navbar bg-base-100'>
         <div className='flex-1'>
-          <Link to='/' className='btn btn-ghost normal-case text-xl text-indigo-500'>
+          <Link to='/' className='btn btn-ghost normal-case text-xl text-indigo-500 lg:text-3xl'>
             Heaven's Kitchen
           </Link>
         </div>
@@ -89,7 +92,7 @@ const Header = () => {
                   <Link to='#'>
                     <div className='avatar'>
                       <div className='w-16 rounded-full'>
-                        <img src={user.photoURL} alt={user.displayName} title={user?.displayName}/>
+                        <img src={user?.photoURL} alt={user?.displayName} title={user?.displayName}/>
                       </div>
                     </div>
                   </Link>

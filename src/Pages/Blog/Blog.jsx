@@ -2,8 +2,8 @@ import React, { useRef } from 'react';
 const Blog = () => {
   
     return (
-
         <div className='mx-32 my-14'>
+            
             <div>
                 <h1 className="text-3xl font-bold mb-3">The differences between uncontrolled and controlled components.</h1>
                 <div className="overflow-x-auto">

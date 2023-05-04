@@ -7,7 +7,6 @@ import Service from '../../components/Service.jsx/Service';
 const Home = () => {
     return (
         <div>
-            <h4>This is home</h4>
             <Banner></Banner>
             <Chefs></Chefs>
             <Reviews></Reviews>

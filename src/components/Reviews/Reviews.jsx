@@ -5,7 +5,7 @@ const Reviews = () => {
         <div className='mx-4 my-8 md:mx-32 md:my-28'>
             <section className="px-4">
                 <div className="mx-auto max-w-3xl text-center">
-                    <h3 className="mb-6 text-3xl font-bold">Reviews</h3>
+                    <h3 className="mb-6 text-4xl text-indigo-500 font-bold">Reviews</h3>
                     <p className="mb-6 pb-2 text-black md:mb-12">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
                         error amet numquam iure provident voluptate esse quasi, veritatis
@@ -14,7 +14,7 @@ const Reviews = () => {
                 </div>
 
                 <div className="grid gap-4 md:gap-12 text-center md:grid-cols-2">
-                    <div className="mb-8 p-3 bg-base-200 rounded-lg md:mb-0">
+                    <div className="mb-8 p-3 bg-white rounded-lg md:mb-0">
                         <div className="mb-6 flex justify-center">
                             <img src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(22).jpg" className="w-20 md:w-24 rounded-full shadow-lg" />
                         </div>
@@ -24,7 +24,7 @@ const Reviews = () => {
                         <p className="text-sm md:text-base italic">- Taskin Ahmed</p>
                     </div>
 
-                    <div className='p-3 bg-base-200 rounded-lg'>
+                    <div className='p-3 bg-white rounded-lg'>
                         <div className="mb-6 flex justify-center ">
                             <img src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(19).jpg" className="w-20 md:w-24 rounded-full shadow-lg" />
                         </div>
@@ -37,7 +37,7 @@ const Reviews = () => {
             </section>
             <section className="px-4 mt-8">
                 <div className="grid gap-4 md:gap-12 text-center md:grid-cols-2">
-                    <div className="mb-8 p-3 bg-base-200 rounded-lg md:mb-0">
+                    <div className="mb-8 p-3 bg-white rounded-lg md:mb-0">
                         <div className="mb-6 flex justify-center">
                             <img src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(22).jpg" className="w-20 md:w-24 rounded-full shadow-lg" />
                         </div>
@@ -47,7 +47,7 @@ const Reviews = () => {
                         <p className="text-sm md:text-base italic">- Habiba Khanam</p>
                     </div>
 
-                    <div className="mb-0 p-3 bg-base-200 rounded-lg">
+                    <div className="mb-0 p-3 bg-white rounded-lg">
                         <div className="mb-6 flex justify-center">
                             <img src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(19).jpg" className="w-24 rounded-full shadow-lg" />
                         </div>

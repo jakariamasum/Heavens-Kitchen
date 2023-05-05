@@ -24,8 +24,10 @@ const Login = () => {
                 console.log(loggedUser);
                 navigate(from, { replace: true })
                 setErr('')
-                form.reset();
+                form.name.value = "";
+                form.email.value = "";
             })
+            
             .catch(error => {
                 console.log(error);
                 setErr("Invalid password or email")

@@ -9,7 +9,7 @@ const ChefDetails = () => {
     const [disabledButton, setDisabledButton] = useState(null);
 
 
-    const handleFavorite = (buttonId,name) => {
+    const handleFavorite = (buttonId, name) => {
         // setIsFavorite(true);
         setDisabledButton(buttonId);
         toast.success(`${name} is now your favorite recipe!`, {
@@ -20,20 +20,23 @@ const ChefDetails = () => {
     console.log(recipesList[1])
     return (
         <div className='mt-4'>
-            <div className="min-h-16 bg-base-200">
-                <div className="hero-content flex-col lg:flex-row-reverse ml-28">
-                    <img src={picture} alt={name} className="max-w-sm rounded-lg shadow-2xl h-[300px]" />
-                    <div className='w-[50%]'>
-                        <h1 className="text-5xl font-bold">{name}</h1>
-                        <p className="py-6">{bio}</p>
-                        <p className="text-indigo-500 mb-2">{likes} likes | {recipes} recipes | {experience} years of experience</p>
+            <div class="min-h-screen bg-base-200 flex justify-center items-center">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse sm:flex-row sm:items-center">
+                    <div class="w-full sm:w-1/2 mb-8 sm:mb-0 sm:mr-16 flex justify-center">
+                        <img src={picture} alt={name} class="max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-xl rounded-lg shadow-2xl" />
+                    </div>
+                    <div class="w-full sm:w-1/2 text-center sm:text-left">
+                        <h1 class="text-5xl font-bold mb-4">{name}</h1>
+                        <p class="mb-6">{bio}</p>
+                        <p class="text-indigo-500 mb-2">{likes} likes | {recipes} recipes | {experience} years of experience</p>
                     </div>
                 </div>
             </div>
-                <h1 className="text-center font-bold text-3xl text-indigo-500 mt-32">Popular recipe</h1>
-            <div className='grid grid-cols-3 mx-32 gap-3 my-24'>
+
+            <h1 className="text-center font-bold text-3xl text-indigo-500 mt-32">Popular recipe</h1>
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mx-4 sm:mx-8 md:mx-32 gap-3 my-8 sm:my-16'>
                 <div className="card card-compact w-full bg-[#CECCD6] shadow-xl">
-                    <figure><img src={recipesList[0].image} alt={recipesList[0].name} className=' h-[250px] p-3'/></figure>
+                    <figure><img src={recipesList[0].image} alt={recipesList[0].name} className=' h-[250px] p-3' /></figure>
                     <div className="card-body">
                         <h2 className="card-title text-center text-3xl text-indigo-500">{recipesList[0].name}</h2>
                         <p>
@@ -48,17 +51,17 @@ const ChefDetails = () => {
                         <div className="card-actions justify-end">
                             <button
                                 className={`bg-indigo-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full}`}
-                                disabled={disabledButton==='button1'}
-                                onClick={() => handleFavorite('button1',recipesList[0].name)}
+                                disabled={disabledButton === 'button1'}
+                                onClick={() => handleFavorite('button1', recipesList[0].name)}
                             >
                                 {/* {isFavorite ? 'Already Favourite' : 'Add to Favourite'} */}
-                            Add to favourite
+                                Add to favourite
                             </button>
                         </div>
                     </div>
                 </div>
                 <div className="card card-compact w-full bg-[#CECCD6] shadow-xl">
-                    <figure><img src={recipesList[1].image} alt={recipesList[1].name} className=' h-[250px] p-3'/></figure>
+                    <figure><img src={recipesList[1].image} alt={recipesList[1].name} className=' h-[250px] p-3' /></figure>
                     <div className="card-body">
                         <h2 className="card-title text-center text-3xl text-indigo-500">{recipesList[1].name}</h2>
                         <p>
@@ -74,8 +77,8 @@ const ChefDetails = () => {
                             <button
                                 className={`bg-indigo-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ${isFavorite && 'bg-gray-400 cursor-default'
                                     }`}
-                                disabled={disabledButton==='button2'}
-                                onClick={() => handleFavorite('button2',recipesList[1].name)}
+                                disabled={disabledButton === 'button2'}
+                                onClick={() => handleFavorite('button2', recipesList[1].name)}
                             >
                                 {isFavorite ? 'Already Favourite' : 'Add to Favourite'}
                             </button>
@@ -83,7 +86,7 @@ const ChefDetails = () => {
                     </div>
                 </div>
                 <div className="card card-compact w-full bg-[#CECCD6] shadow-xl">
-                    <figure><img src={recipesList[2].image} alt={recipesList[2].name}  className=' h-[250px] p-3'/></figure>
+                    <figure><img src={recipesList[2].image} alt={recipesList[2].name} className=' h-[250px] p-3' /></figure>
                     <div className="card-body">
                         <h2 className="card-title text-center text-3xl text-indigo-500">{recipesList[2].name}</h2>
                         <p>
@@ -99,8 +102,8 @@ const ChefDetails = () => {
                             <button
                                 className={`bg-indigo-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ${isFavorite && 'bg-gray-400 cursor-default'
                                     }`}
-                                disabled={disabledButton==='button3'}
-                                onClick={() => handleFavorite('button3',recipesList[2].name)}
+                                disabled={disabledButton === 'button3'}
+                                onClick={() => handleFavorite('button3', recipesList[2].name)}
                             >
                                 {isFavorite ? 'Already Favourite' : 'Add to Favourite'}
                             </button>

@@ -6,17 +6,17 @@ const Footer = () => {
         <div className="bg-gray-500 text-white py-12 lg:px-32">
             <div className="flex flex-wrap justify-center lg:justify-between">
                 <div className="mb-6 lg:mb-0">
-                    <h3 className="text-lg font-bold mb-4">Services</h3>
+                    <h3 className="text-lg font-bold mb-4 mr-2 lg:mr-0">Services</h3>
                     <Link to="#" className="block mb-2 text-sm hover:underline">Foods</Link>
-                    <Link to="#" className="block mb-2 text-sm hover:underline">Home Delivery</Link>
-                    <Link to="#" className="block text-sm hover:underline">Service</Link>
+                    <Link to="#" className="block mb-2 text-sm hover:underline">Delivery</Link>
+                    <Link to="#" className="block text-sm hover:underline">Online <br className='md:hidden' /> Order</Link>
                 </div>
                 <div className="mb-6 lg:mb-0">
-                    <h3 className="text-lg font-bold mb-4">Heaven's Kitchen</h3>
-                    <Link to="#" className="block mb-2 text-sm hover:underline">About us</Link>
-                    <Link to="#" className="block mb-2 text-sm hover:underline">Contact</Link>
-                    <Link to="#" className="block mb-2 text-sm hover:underline">Foods</Link>
-                    <Link to="#" className="block text-sm hover:underline">Blog</Link>
+                    <h3 className="text-lg font-bold mb-4 mr-2 lg:mr-0">Heaven's Kitchen</h3>
+                    <Link to="#" className="block mb-2 ml-6 text-sm hover:underline">About us</Link>
+                    <Link to="#" className="block mb-2 ml-6 text-sm hover:underline">Contact</Link>
+                    <Link to="#" className="block mb-2 ml-6 text-sm hover:underline">Foods</Link>
+                    <Link to="#" className="block ml-6 text-sm hover:underline">Blog</Link>
                 </div>
                 <div className="mb-6 lg:mb-0">
                     <h3 className="text-lg font-bold mb-4">Legal</h3>

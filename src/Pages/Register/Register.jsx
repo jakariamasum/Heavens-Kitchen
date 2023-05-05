@@ -6,7 +6,7 @@ import app from '../../firebase/firebase.config';
 const auth = getAuth();
 const Register = () => {
     const { createUser } = useContext(AuthContext);
-    const [err,setErr]=useState('');
+    const [err, setErr] = useState('');
     const handleRegister = event => {
         event.preventDefault();
         const form = event.target;
@@ -14,13 +14,11 @@ const Register = () => {
         const photo = form.photoUrl.value;
         const email = form.email.value;
         const password = form.password.value;
-        if(!email || !password || !photo || !name)
-        {
+        if (!email || !password || !photo || !name) {
             setErr('Please provide all the information')
             return
         }
-        if(password.length<6)
-        {
+        if (password.length < 6) {
             setErr('Password must at least 6 character')
             return;
         }
@@ -32,9 +30,15 @@ const Register = () => {
                 console.log(createdUser);
                 updateProfile(auth.currentUser, {
                     displayName: name, photoURL: photo
-                  }).then(() => {})
-                  .catch((error) => {});
-                <Navigate to='/login' replace></Navigate>
+                }).then(() => { })
+                    .catch((error) => { });
+                form.name.value = "";
+                form.photoUrl.value = "";
+                form.email.value = "";
+                form.password.value = "";
+
+                // display success message
+                setErr("Registration successful. Please log in to continue.");
             })
             .catch(error => {
                 console.log(error);
@@ -52,10 +56,10 @@ const Register = () => {
                             <input type="text" name="name" id="name" className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
 
                             <label className="font-semibold text-sm text-gray-600 pb-1 block">Email</label>
-                            <input type="email" name="email" id="email" className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" required/>
+                            <input type="email" name="email" id="email" className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" required />
 
                             <label className="font-semibold text-sm text-gray-600 pb-1 block">Password</label>
-                            <input type="password" name="password" id="password" className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" required/>
+                            <input type="password" name="password" id="password" className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" required />
 
                             <label className="font-semibold text-sm text-gray-600 pb-1 block">Photo URL</label>
                             <input type="text" name="photoUrl" id="photoUrl" className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />

@@ -3,10 +3,12 @@ import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { getAuth, updateProfile } from 'firebase/auth';
 import app from '../../firebase/firebase.config';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const auth = getAuth();
 const Register = () => {
     const navigate = useNavigate();
-    const { createUser } = useContext(AuthContext);
+    const { createUser,logOut } = useContext(AuthContext);
     const [err, setErr] = useState('');
     const handleRegister = event => {
         event.preventDefault();
@@ -30,17 +32,22 @@ const Register = () => {
                 console.log(createdUser);
                 updateProfile(auth.currentUser, {
                     displayName: name, photoURL: photo
-                }).then(() => { })
-                    .catch((error) => { });
+                }).then(() => { 
+                    logOut();
+                })
+                .catch((error) => { });
                 form.name.value = "";
                 form.photoUrl.value = "";
                 form.email.value = "";
                 form.password.value = "";
-                navigate('/')
+                navigate('/login')
             })
             .catch(error => {
                 console.log(error);
             })
+            toast.success("Registration succesful. Please login", {
+                position: toast.POSITION.TOP_RIGHT,
+            });
     }
 
     return (
@@ -72,6 +79,7 @@ const Register = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer/>
         </div>
     );
 };

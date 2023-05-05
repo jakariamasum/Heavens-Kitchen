@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from 'react-icons/fa'
 import { AuthContext } from '../../providers/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
@@ -33,6 +35,9 @@ const Login = () => {
                 console.log(error);
                 setErr("Invalid password or email")
             })
+            toast.success("Login succesful!", {
+                position: toast.POSITION.TOP_RIGHT,
+            });
 
     }
 
@@ -99,6 +104,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer/>
         </div>
     );
 };

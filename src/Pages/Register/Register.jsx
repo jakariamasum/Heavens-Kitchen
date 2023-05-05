@@ -3,7 +3,7 @@ import { Link, Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { getAuth, updateProfile } from 'firebase/auth';
 import app from '../../firebase/firebase.config';
-const auth = getAuth(app);
+const auth = getAuth();
 const Register = () => {
     const { createUser } = useContext(AuthContext);
     const [err,setErr]=useState('');
@@ -30,8 +30,8 @@ const Register = () => {
             .then(result => {
                 const createdUser = result.user;
                 console.log(createdUser);
-                updateProfile(auth.createdUser, {
-                    displayName: {name}, photoURL: {photo}
+                updateProfile(auth.currentUser, {
+                    displayName: name, photoURL: photo
                   }).then(() => {})
                   .catch((error) => {});
                 <Navigate to='/login' replace></Navigate>

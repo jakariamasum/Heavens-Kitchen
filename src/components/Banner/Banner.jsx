@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 const Banner = () => {
+    
     return (
         <div>
             <div className="hero min-h-screen bg-cover bg-center" style={{ backgroundImage: `url("https://img.freepik.com/free-photo/top-view-table-full-delicious-food-composition_23-2149141352.jpg?w=1060&t=st=1683133953~exp=1683134553~hmac=f6d0415b5c1d30709c2646f0aff9ee52561c1aec5cf5aac235259d1a56fe4dc6")` }}>

@@ -4,7 +4,7 @@ import { FaGoogle, FaGithub } from 'react-icons/fa'
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
-    const {user, signIn, logOut, googleLogin, githubLogin } = useContext(AuthContext);
+    const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
     const [err,setErr]=useState('');
     const navigate = useNavigate();
     const location = useLocation();
@@ -18,6 +18,7 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password);
 
+        //login with email and password
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
@@ -35,6 +36,7 @@ const Login = () => {
 
     }
 
+        //login with google
     const handleGoogleLogIn = () => {
         googleLogin()
             .then(result => {
@@ -43,6 +45,8 @@ const Login = () => {
             })
             .catch(error => console.log(error))
     }
+
+        //login with github
     const handleGithubLogIn = () => {
         githubLogin()
             .then(result => {
@@ -51,11 +55,6 @@ const Login = () => {
             })
             .catch(error => console.log(error))
     }
-
-    // const handleLogOut=(event)=>{
-    //     event.preventDefault(); 
-    //     logOut()
-    // }
 
 
     return (

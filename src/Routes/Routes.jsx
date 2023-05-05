@@ -10,32 +10,32 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 
 const router = createBrowserRouter([
-    
+
     {
-        path:'/',
+        path: '/',
         element: <Main></Main>,
         errorElement: <ErrorPage></ErrorPage>,
-        children:[
+        children: [
             {
-                path:'/',
+                path: '/',
                 element: <Home></Home>
             },
             {
-                path:'/login',
+                path: '/login',
                 element: <Login></Login>
-            }, 
+            },
             {
                 path: '/register',
                 element: <Register></Register>
             },
             {
-                path:'blog',
+                path: 'blog',
                 element: <Blog></Blog>
             },
             {
-                path: 'chefs/:id', 
+                path: 'chefs/:id',
                 element: <PrivateRoutes><ChefDetails></ChefDetails></PrivateRoutes>,
-                loader: ({params}) => fetch(`https://heaven-s-kitchen-server-jakariamasum.vercel.app/chefs/${params.id}`)
+                loader: ({ params }) => fetch(`https://heaven-s-kitchen-server-jakariamasum.vercel.app/chefs/${params.id}`)
 
             }
         ]

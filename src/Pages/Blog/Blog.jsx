@@ -7,9 +7,9 @@ const Blog = () => {
     return (
         <div className='mx-32 my-14'>
             <div className='text-center my-16'>
-            <Pdf targetRef={ref} filename="blog.pdf">
-                {({ toPdf }) => <button  onClick={toPdf} className='btn btn-accent btn-outline text-2xl text-indigo-500 font-semibold'>Get Pdf</button>}
-            </Pdf>
+                <Pdf targetRef={ref} filename="blog.pdf">
+                    {({ toPdf }) => <button onClick={toPdf} className='btn btn-accent btn-outline text-2xl text-indigo-500 font-semibold'>Get Pdf</button>}
+                </Pdf>
             </div>
             <div ref={ref}>
                 <div>
@@ -72,12 +72,12 @@ const Blog = () => {
                     <h1 className="font-bold text-3xl">The difference between nodejs and express js</h1>
                     <p>Express.js, on the other hand, is a popular web application framework built on top of Node.js. It provides a set of features and tools for building web applications and APIs, such as routing, middleware, and templating engines. Express.js simplifies the development of server-side applications by providing a structured and organized approach to building web applications. <br />
                         Here are some of the key differences between Node.js and Express.js: </p>
-                        <ul className='list-disc ml-14'>
-                            <li>Purpose: Node.js is a runtime environment for executing JavaScript code on the server-side, while Express.js is a web application framework built on top of Node.js.</li>
-                            <li>Functionality: Node.js provides the basic functionality for building server-side applications, while Express.js provides additional features and tools for building web applications and APIs.</li>
-                            <li>Flexibility: Node.js provides a lot of flexibility and control over the application architecture, while Express.js provides a more structured and opinionated approach to building web applications.</li>
-                            <li>Learning curve: Node.js requires a deeper understanding of the underlying technologies, such as HTTP and network protocols, while Express.js abstracts away some of these complexities and provides a simpler, more intuitive API.</li>
-                        </ul>
+                    <ul className='list-disc ml-14'>
+                        <li>Purpose: Node.js is a runtime environment for executing JavaScript code on the server-side, while Express.js is a web application framework built on top of Node.js.</li>
+                        <li>Functionality: Node.js provides the basic functionality for building server-side applications, while Express.js provides additional features and tools for building web applications and APIs.</li>
+                        <li>Flexibility: Node.js provides a lot of flexibility and control over the application architecture, while Express.js provides a more structured and opinionated approach to building web applications.</li>
+                        <li>Learning curve: Node.js requires a deeper understanding of the underlying technologies, such as HTTP and network protocols, while Express.js abstracts away some of these complexities and provides a simpler, more intuitive API.</li>
+                    </ul>
                 </div>
                 <div>
                     <h1 className="font-bold text-3xl my-6">What is a custom hook, and why will you create a custom hook?</h1>

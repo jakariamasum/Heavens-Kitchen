@@ -5,7 +5,7 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
-  const [currentUser,setCurrentUser]=useState(false)
+  const [currentUser, setCurrentUser] = useState(false)
   const [showMenu, setShowMenu] = useState(false);
   const location = useLocation();
 
@@ -14,7 +14,7 @@ const Header = () => {
       .then(() => {
         <Navigate to='/login'></Navigate>;
       })
-      .catch((error) => {});
+      .catch((error) => { });
   };
   useEffect(() => {
     setCurrentUser(true);
@@ -35,16 +35,14 @@ const Header = () => {
             {showMenu ? <FaTimes /> : <FaBars />}
           </button>
           <ul
-            className={`menu menu-horizontal px-1 gap-2 sm:flex ${
-              showMenu ? 'block' : 'hidden'
-            }`}
+            className={`menu menu-horizontal px-1 gap-2 sm:flex ${showMenu ? 'block' : 'hidden'
+              }`}
           >
             <li>
               <Link
                 to='/'
-                className={`${
-                  location.pathname === '/' ? 'bg-indigo-500 text-white' : ''
-                }`}
+                className={`${location.pathname === '/' ? 'bg-indigo-500 text-white' : ''
+                  }`}
               >
                 <span className=' sm:block'>Home</span>
               </Link>
@@ -52,9 +50,8 @@ const Header = () => {
             <li>
               <Link
                 to='/blog'
-                className={`${
-                  location.pathname === '/blog' ? 'bg-indigo-500 text-white' : ''
-                }`}
+                className={`${location.pathname === '/blog' ? 'bg-indigo-500 text-white' : ''
+                  }`}
               >
                 <span className=' sm:block sm:text-black'>Blog</span>
               </Link>
@@ -64,11 +61,10 @@ const Header = () => {
                 <li>
                   <Link
                     to='/login'
-                    className={`${
-                      location.pathname === '/login'
-                        ? 'bg-indigo-500 text-white'
-                        : ''
-                    }`}
+                    className={`${location.pathname === '/login'
+                      ? 'bg-indigo-500 text-white'
+                      : ''
+                      }`}
                   >
                     <span className=' sm:block'>Login</span>
                   </Link>
@@ -76,11 +72,10 @@ const Header = () => {
                 <li>
                   <Link
                     to='/register'
-                    className={`${
-                      location.pathname === '/register'
-                        ? 'bg-indigo-500 text-white'
-                        : ''
-                    }`}
+                    className={`${location.pathname === '/register'
+                      ? 'bg-indigo-500 text-white'
+                      : ''
+                      }`}
                   >
                     <span className=' sm:inline'>Register</span>
                   </Link>
@@ -92,11 +87,11 @@ const Header = () => {
                   <Link to='#'>
                     <div className='avatar'>
                       <div className='w-16 rounded-full'>
-                        <img src={user?.photoURL} alt={user?.displayName} title={user?.displayName}/>
+                        {user.photoURL ? <img src={user?.photoURL} alt={user?.displayName} title={user?.displayName} /> : <img src="https://i.ibb.co/F0wKcw6/709699.png" title={user?.displayName} />}
                       </div>
                     </div>
                   </Link>
-                </li>  
+                </li>
                 <li>
                   <Link onClick={handleLogOut}>
                     <span className=' sm:inline'>LogOut</span>

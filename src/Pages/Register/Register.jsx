@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
-import { Link, Navigate, useLocation } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { getAuth, updateProfile } from 'firebase/auth';
 import app from '../../firebase/firebase.config';
 const auth = getAuth();
 const Register = () => {
+    const navigate = useNavigate();
     const { createUser } = useContext(AuthContext);
     const [err, setErr] = useState('');
     const handleRegister = event => {
@@ -14,16 +15,15 @@ const Register = () => {
         const photo = form.photoUrl.value;
         const email = form.email.value;
         const password = form.password.value;
-        if (!email || !password || !photo || !name) {
-            setErr('Please provide all the information')
-            return
-        }
+
         if (password.length < 6) {
             setErr('Password must at least 6 character')
             return;
         }
 
         console.log(name, photo, email, password)
+
+        //create user by using email and password
         createUser(email, password)
             .then(result => {
                 const createdUser = result.user;
@@ -36,9 +36,7 @@ const Register = () => {
                 form.photoUrl.value = "";
                 form.email.value = "";
                 form.password.value = "";
-
-                // display success message
-                setErr("Registration successful. Please log in to continue.");
+                navigate('/')
             })
             .catch(error => {
                 console.log(error);

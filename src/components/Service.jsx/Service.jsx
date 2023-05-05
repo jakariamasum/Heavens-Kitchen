@@ -20,6 +20,7 @@ const Service = () => {
                         </div>
                     </div>
                 </section>
+
                 <section>
                     <div className="card bg-white shadow-xl">
                         <figure className="px-10 pt-10">
@@ -29,11 +30,12 @@ const Service = () => {
                             <h2 className="card-title">Experienced Chefs</h2>
                             <p>We have 15+ most experienced chefs</p>
                             <div className="card-actions">
-                            <Link to='/login'><button className="btn btn-outline btn-accent">Explore Now</button></Link>
+                                <Link to='/login'><button className="btn btn-outline btn-accent">Explore Now</button></Link>
                             </div>
                         </div>
                     </div>
                 </section>
+                
                 <section>
                     <div className="card bg-white shadow-xl">
                         <figure className="px-10 pt-10">
@@ -43,7 +45,7 @@ const Service = () => {
                             <h2 className="card-title">Best Service</h2>
                             <p>We are available anytime</p>
                             <div className="card-actions">
-                            <Link to='/login'><button className="btn btn-outline btn-accent">Explore Now</button></Link>
+                                <Link to='/login'><button className="btn btn-outline btn-accent">Explore Now</button></Link>
                             </div>
                         </div>
                     </div>

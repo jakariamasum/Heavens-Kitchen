@@ -4,7 +4,6 @@ import { Link, useParams } from 'react-router-dom';
 
 const ChefCard = ({ chef }) => {
     const { id, name, experience, picture, recipies, likes } = chef;
-    console.log(id);
     return (
         <div className="mx-auto text-center sm:max-w-sm md:max-w-md lg:max-w-xs xl:max-w-sm rounded overflow-hidden shadow-lg bg-white">
             <LazyLoad height={200} offset={100}>

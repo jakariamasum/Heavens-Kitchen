@@ -34,13 +34,13 @@ const Register = () => {
                     displayName: name, photoURL: photo
                 }).then(() => { 
                     logOut();
+                    navigate('/login')
                 })
                 .catch((error) => { });
                 form.name.value = "";
                 form.photoUrl.value = "";
                 form.email.value = "";
                 form.password.value = "";
-                navigate('/login')
             })
             .catch(error => {
                 console.log(error);
